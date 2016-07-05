@@ -1,22 +1,55 @@
 var $ = require('jquery');
 
 module.exports = {
-  setTodos: function(todos) {
-    if($.isArray(todos)) {
+  setTodos: function (todos) {
+    if ($.isArray(todos)) {
       localStorage.setItem('todos', JSON.stringify(todos));
-      return todos; // return so that people can see if failed or not. if failed returns nothing otherwiuse returns the array
+      return todos;
     }
   },
-  getTodos: function() {
+  getTodos: function () {
     var stringTodos = localStorage.getItem('todos');
     var todos = [];
 
     try {
-      todos = JSON.parse(stringTodos); // check it is a valid object or array
+      todos = JSON.parse(stringTodos);
     } catch (e) {
 
     }
 
-    return $.isArray(todos) ? todos : []; // if is an array pass code after question mark, else after colon
+    return $.isArray(todos) ? todos : [];
+  },
+  filterTodos: function (todos, showCompleted, searchText) {
+    var filteredTodos = todos;
+
+    // Filter by showCompleted
+    filteredTodos = filteredTodos.filter((todo) => {
+
+      return !todo.completed || showCompleted;
+    });
+
+    // Filter by searchText
+    filteredTodos = filteredTodos.filter((todo) => {
+      var text = todo.text.toLowerCase();
+
+      return  searchText.length === 0 || text.indexOf(searchText) >-1;
+    });
+    //convert toLowerCase
+    //empty string, length 0, nothing reutrn everything. if is text see if it is inside to do using 'aaaaasasasssss'.indexOf('asasa')
+    // Sort todos with non-completed first
+    filteredTodos.sort((a,b) => {
+    if(!a.completed && b.completed) {
+      return -1;
+    } else if(a.completed && !b.completed) {
+        return 1;
+    } else {
+      return 0;
+    }
+
+
+
+    });
+
+    return filteredTodos;
   }
 };
