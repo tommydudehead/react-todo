@@ -14,7 +14,7 @@ describe('AddToDo', () => {
   it('should call onaddtodo prop with valid data', () => {
     var todoText = 'check mail';
     var spy = expect.createSpy();
-    var addToDo = TestUtils.renderIntoDocument(<AddToDo onAddToDo={spy}/>);
+    var addToDo = TestUtils.renderIntoDocument(<AddToDo onAddTodo={spy}/>);
     var $el = $(ReactDOM.findDOMNode(addToDo));
 
     addToDo.refs.todoText.value= todoText;
