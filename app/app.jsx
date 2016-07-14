@@ -11,9 +11,7 @@ store.subscribe(() => {
   console.log('new state', store.getState());
 });
 
-store.dispatch(actions.addTodo('aasasasasa'));
-store.dispatch(actions.setSearchText('hardcodedaasa'));
-store.dispatch(actions.toggleShowCompleted());
+
 
 $(document).foundation();
 

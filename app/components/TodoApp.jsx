@@ -4,10 +4,11 @@ var moment = require('moment');
 
 //var TodoList = require('TodoList');
 //var AddTodo = require('AddTodo');
-var TodoSearch = require('TodoSearch');
+//var TodoSearch = require('TodoSearch');
 var TodoAPI = require('TodoAPI');
 import TodoList from 'TodoList';
 import AddTodo from 'AddTodo';
+import TodoSearch from 'TodoSearch';
 
 var TodoApp = React.createClass({
   getInitialState: function () {
