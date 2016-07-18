@@ -7,19 +7,19 @@ module.exports = {
     'script!foundation-sites/dist/foundation.min.js',
     './app/app.jsx'
   ],
-  output: {
-    path: __dirname,
-    filename: './public/bundle.js'
-  },
   externals: {
     jquery: 'jQuery'
   },
-  plugins:[
+  plugins: [
     new webpack.ProvidePlugin({
       '$': 'jquery',
       'jQuery': 'jquery'
     })
   ],
+  output: {
+    path: __dirname,
+    filename: './public/bundle.js'
+  },
   resolve: {
     root: __dirname,
     modulesDirectories: [
@@ -28,10 +28,11 @@ module.exports = {
       './app/api'
     ],
     alias: {
+      app: 'app',
       applicationStyles: 'app/styles/app.scss',
       actions: 'app/actions/actions.jsx',
       reducers: 'app/reducers/reducers.jsx',
-      configureStore:'app/store/configureStore.jsx'
+      configureStore: 'app/store/configureStore.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },
