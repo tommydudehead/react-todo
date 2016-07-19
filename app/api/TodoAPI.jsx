@@ -45,5 +45,15 @@ module.exports = {
     });
 
     return filteredTodos;
+  },
+  filterQuestions: function (questions, showCompleted, searchText) {
+    var filteredTodos = questions;
+
+
+
+
+
+    return filteredTodos;
   }
+
 };

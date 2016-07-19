@@ -19,6 +19,23 @@ export var showCompletedReducer = (state = false, action) => {
   }
 };
 
+export var questionsReducer = (state = false, action) => {
+  switch (action.type) {
+    case 'GET_QUESTIONS': // this updates the state. and the render methods mean that the view then automatically updates, i think at least.
+      return [
+        ...state,
+        ...action.questions // actions.todos is the todos object passed in from the action that calls this. which is called addToDo
+      ];
+      case 'ADD_QUESTION':
+        return [
+          ...state,
+          action.question
+        ];
+    default:
+      return state;
+  }
+};
+
 export var todosReducer = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TODO':
@@ -26,25 +43,24 @@ export var todosReducer = (state = [], action) => {
         ...state,
         action.todo
       ];
-    case 'TOGGLE_TODO':
+
+    case 'UPDATE_TODO':
       return state.map((todo) => {
         if (todo.id === action.id) {
-          var nextCompleted = !todo.completed;
-
           return {
             ...todo,
-            completed: nextCompleted,
-            completedAt: nextCompleted ? moment().unix() : undefined
+            ...action.updates
           };
         } else {
           return todo;
         }
       });
-    case 'ADD_TODOS':
+    case 'ADD_TODOS': // this updates the state. and the render methods mean that the view then automatically updates, i think at least.
       return [
         ...state,
-        ...action.todos
+        ...action.todos // actions.todos is the todos object passed in from the action that calls this. which is called addToDo
       ];
+
     default:
       return state;
   }
