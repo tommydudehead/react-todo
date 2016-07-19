@@ -1,9 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
 
-process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-
-
 module.exports = {
   entry: [
     'script!jquery/dist/jquery.min.js',
@@ -17,11 +14,6 @@ module.exports = {
     new webpack.ProvidePlugin({
       '$': 'jquery',
       'jQuery': 'jquery'
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compressor: {
-        warnings: false
-      }
     })
   ],
   output: {
