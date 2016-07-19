@@ -14,10 +14,3 @@ try  {
 
 export var firebaseRef = firebase.database().ref();
 export default firebase;
-
-
-var questionsRef = firebaseRef.child('questions');
-
-questionsRef.on('child_added',(snapshot) => {
-  console.log('child_added', snapshot.key, snapshot.val());
-});
