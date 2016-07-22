@@ -10,7 +10,7 @@ var TodoApp = require('TodoApp');
 var actions = require('actions');
 var store = require('configureStore').configure();
 var TodoAPI = require('TodoAPI');
-import Login from 'Login';
+
 
 store.dispatch(actions.startGetQuestions());
 store.dispatch(actions.startAddTodos());
