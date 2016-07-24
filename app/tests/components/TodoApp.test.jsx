@@ -3,8 +3,8 @@ var ReactDOM= require('react-dom');
 var TestUtils= require('react-addons-test-utils');
 var expect= require('expect');
 var $= require('jquery');
+import {TodoApp} from 'TodoApp';
 
-var TodoApp = require('TodoApp');
 
 describe('TodoApp', () => {
   it('should exist', () => {

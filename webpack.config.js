@@ -43,6 +43,7 @@ module.exports = {
     path: __dirname,
     filename: './public/bundle.js'
   },
+
   resolve: {
     root: __dirname,
     modulesDirectories: [
@@ -71,6 +72,7 @@ module.exports = {
       }
     ]
   },
+
   sassLoader: {
     includePaths: [
       path.resolve(__dirname, './node_modules/foundation-sites/scss')

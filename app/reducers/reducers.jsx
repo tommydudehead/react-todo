@@ -19,6 +19,19 @@ export var showCompletedReducer = (state = false, action) => {
   }
 };
 
+export var authReducer = (state = {}, action) => {
+  switch (action.type) {
+    case 'LOGIN':
+    return {
+         uid: action.uid
+    };
+    case 'LOGOUT':
+    return {}; // we just need to return an empty object to clear everything
+    default:
+      return state;
+  }
+};
+
 export var questionsReducer = (state = false, action) => {
   switch (action.type) {
     case 'GET_QUESTIONS': // this updates the state. and the render methods mean that the view then automatically updates, i think at least.
