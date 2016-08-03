@@ -73,6 +73,10 @@ export var todosReducer = (state = [], action) => {
         ...state,
         ...action.todos // actions.todos is the todos object passed in from the action that calls this. which is called addToDo
       ];
+      case 'LOGOUT': // this updates the state. and the render methods mean that the view then automatically updates, i think at least.
+        return [
+
+        ];
 
     default:
       return state;
